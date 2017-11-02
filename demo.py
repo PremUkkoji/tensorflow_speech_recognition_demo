@@ -26,7 +26,7 @@ net = tflearn.regression(net, optimizer='adam', learning_rate=learning_rate, los
 ### add this "fix" for tensorflow version errors
 col = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES)
 for x in col:
-    tf.add_to_collection(tf.GraphKeys.VARIABLES, x ) 
+    tf.add_to_collection(tf.GraphKeys.GLOBAL_VARIABLES, x ) 
 
 
 model = tflearn.DNN(net, tensorboard_verbose=0)
